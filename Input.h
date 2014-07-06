@@ -8,7 +8,8 @@ enum EBtnPressed
 	eBP_Left,
 	eBP_Right,
 	eBP_Attack,
-	eBP_Jump
+	eBP_Jump,
+	eBP_All
 };
 
 enum EBtnClick
@@ -19,7 +20,10 @@ enum EBtnClick
 
 class CInput
 {
-
+public:
+	void Flush();
+	bool m_bButtonDown[eBP_Jump];
+	bool m_bButtonUp[eBP_Jump];
 };
 
 

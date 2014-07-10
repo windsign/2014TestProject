@@ -15,9 +15,35 @@ void CContext::Init()
 void CContext::ChangeState(EState newState)
 {
 	m_bChangeState = true;
+	
+	m_eCurState = newState;
+	//change the speed
+	
+	
+	//
+}
+
+void CContext::ShouldGroundControl()
+{
+
+}
+
+void CContext::ShouldAttack()
+{
+
 }
 
 void CContext::Update()
 {
+	if(m_bChangeState){
+		m_pStates[m_eCurState]->Active();
+		m_bChangeState = false;
+	}else{
+		m_pStates[m_eCurState]->Update();
+	}
+}
 
+void CContext::SetAttack(const std::string& attackKey)
+{
+	m_strAttackKey = attackKey;
 }
